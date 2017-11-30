@@ -19,7 +19,7 @@ public class ReadFileFromUrl {
 				System.out.println("next >> "+s.next());	
 			}
 			
-			String str = "/opt/application/coherence/coh_domain/ProductUtility/lib/db.properties";
+			      String str = "/opt/application/coherence/coh_domain/ProductUtility/lib/db.properties";
 			String substr = "lib";
 			String before = str.substring(0, str.indexOf(substr));
 			
