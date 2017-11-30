@@ -12,6 +12,7 @@ public class ReadFileFromUrl {
 		// TODO Auto-generated method stub
 		URL url;
 		try {
+			System.out.println("Committing to Git----------");
 			url = new URL("http://www.puzzlers.org/pub/wordlists/pocket.txt");
 			Scanner s = new Scanner(url.openStream());
 			while(s.hasNext()){
