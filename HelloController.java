@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,7 +64,7 @@ public class HelloController {
 //	NOTE : while using model attribute, the field names in the jsp page and the Object should be the same
 	
 	@RequestMapping(value = "/submitAdmissionForm.html", method = RequestMethod.POST)
-	protected ModelAndView submitAdmissionForm(@ModelAttribute ("student") Student student, BindingResult result) throws Exception {
+	protected ModelAndView submitAdmissionForm(@Valid @ModelAttribute ("student") Student student, BindingResult result) throws Exception {
 		
 		if(result.hasErrors()){
 			ModelAndView model1=new ModelAndView("AdmissionForm");
