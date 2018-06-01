@@ -10,6 +10,20 @@
 
 	<context:component-scan base-package="com.sumeet.studentController" />
 	<mvc:annotation-driven />
+	
+	<mvc:interceptors>
+	<!--We use below interceptor tag if we want the interceptor only for a particular url request 
+		otherwise we can write the below bean class tag outside of mvc:interceptor and just below mvc:interceptors-->
+	<mvc:interceptor>
+		<mvc:mapping path="/admission.html"/>
+		<bean class="com.sumeet.studentController.DayOfWeekBasedAccessInteceptor" />
+	</mvc:interceptor>
+	
+	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+      <property name="paramName" value="siteLanguage"/>
+   </bean>
+		
+	</mvc:interceptors>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -25,7 +39,13 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		
 		<property name="basename" value="/WEB-INF/studentmessages"/>
+		<!--if you don't want to restart the server , every time you make a change in the properties file, then add below statement  -->
+		<!--With this statement, we r simply instructing the mvc framework that at runtime load all the changes made by anyone in this  -->
+		<!--property file after every 1 second . NOTE : it degrades performance -->
+		<property name="cacheSeconds" value="1"/>
 	
 	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
 
 </beans>

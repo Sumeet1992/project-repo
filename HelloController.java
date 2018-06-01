@@ -24,11 +24,13 @@ public class HelloController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder){
-//		this function is used when we don't want a field to be binded to an object variable
+//		this below function is used when we don't want a field to be binded to an object variable
 //		so in this case student Mobile won't be bound to studentMobile field in the student object 
 		binder.setDisallowedFields(new String[] {"studentMobile"});
+		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy****MM****dd");
 		binder.registerCustomEditor(Date.class,"studentDOB",new CustomDateEditor(dateFormat, false));
+//		Creating a custom Proeprty Editor
 		binder.registerCustomEditor(String.class,"studentName",new StudentNameEditor());
 		
 	}
