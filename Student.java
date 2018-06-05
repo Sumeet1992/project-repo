@@ -8,9 +8,22 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+// If you want only those properties be included which are not null
+@JsonInclude(JsonInclude.Include.NON_NULL)
+// If we want some property to not be included in the json response
+@JsonIgnoreProperties({"studentSkills"})
+// If we want the key value pairs to be displayed i a certain order in the json file response
+@JsonPropertyOrder({"studentDOB","student_name","studentHobby","studentMobile","studentSkills","studentAddress"})
 public class Student {
 	
 	@Pattern(regexp="[^0-9]*")
+//	if we want the student name field to be displayed differently in the json file response we use below annotation
+	@JsonProperty("student_name")
 	private String studentName;
 	
 //	USED FOR BEAN VALIDATIONS. ALSO, @VALID HAS TO BE ADDED IN THE REQUEST HANDLER

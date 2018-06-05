@@ -46,10 +46,10 @@
 	
 	</bean>
 	
-	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+	<!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
 	
-	<!--If we dont want to write all the separate classes for exception we can just write a bean
-		definition like below.. so that we can remove the separate class  -->
+	If we dont want to write all the separate classes for exception we can just write a bean
+		definition like below.. so that we can remove the separate class 
 	<bean id = "simpleMappingExceptionResolver" 
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property>
@@ -59,6 +59,6 @@
 		</property>
 		<property name="warnLogCategory" value = "MVCLogger"/>
 		
-		</bean>
+		</bean> -->
 
 </beans>
